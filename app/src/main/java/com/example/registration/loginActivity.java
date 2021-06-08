@@ -26,6 +26,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class loginActivity extends AppCompatActivity {
 
@@ -38,6 +39,7 @@ public class loginActivity extends AppCompatActivity {
     private ProgressDialog mProgressBar;
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
+    private FirebaseFirestore fStore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -78,6 +80,7 @@ public class loginActivity extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // Inicializar Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        fStore=FirebaseFirestore.getInstance();
     }
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();

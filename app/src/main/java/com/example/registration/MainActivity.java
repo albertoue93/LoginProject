@@ -20,6 +20,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -34,9 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
     private GoogleSignInOptions gso;
-
-    Button btnCerrarSesion;
-    Button btnEliminarCta;
+    Button btnEliminarCta,btnCerrarSesion;
+    FloatingActionButton btnFab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         userImg = findViewById(R.id.userImagen);
         btnCerrarSesion=findViewById(R.id.btnLogout);
         btnEliminarCta=findViewById(R.id.btnEliminarCta);
+        btnFab=findViewById(R.id.fab);
 
         mAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=mAuth.getCurrentUser();
@@ -120,6 +122,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });//fin onClick
+       btnFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Snackbar.make(v, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
 
 
     }

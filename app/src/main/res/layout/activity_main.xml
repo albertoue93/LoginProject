@@ -7,174 +7,138 @@
     tools:context=".MainActivity"
     android:background="@drawable/gradiente_background"
     >
-
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
         android:layout_width="0dp"
-        android:layout_height="250dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:cardCornerRadius="10dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+        tools:ignore="MissingConstraints">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userImagen"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_margin="16dp"
-                android:layout_marginTop="56dp"
-                android:src="@drawable/userimg"
+
+            <EditText
+                android:id="@+id/edit_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/view"
-                android:layout_width="wrap_content"
-                android:layout_height="2dp"
-                android:layout_marginTop="40dp"
-                android:background="#353535"
+            <TextView
+                android:id="@+id/edit_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="10dp"
+                android:text="Estado"
+                android:ems="10"
+                android:hint="opciones"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_title" />
+            <Spinner
+                android:id="@+id/planets_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_desc" />
+
+            <Button
+                android:id="@+id/datebtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="150dp"
+                android:text="Date Picker"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/datetext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:ems="10"
+                android:hint="Date"
+                android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userImagen" />
+                app:layout_constraintTop_toBottomOf="@+id/datebtn" />
 
-            <TextView
-                android:id="@+id/userNombre"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="userNombre"
-                android:textColor="#000000"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userImagen" />
-
-            <TextView
-                android:id="@+id/userEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:text="email@domini.com"
-                android:textSize="10sp"
-                app:layout_constraintBottom_toBottomOf="@+id/view"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userNombre"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <LinearLayout
+            <Button
+                android:id="@+id/timebtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Time Picker"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view">
+                app:layout_constraintTop_toBottomOf="@+id/datetext" />
 
-                <TextView
-                    android:id="@+id/textViewPin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_pin"
-                    android:drawableTint="#000"
-                    android:paddingRight="5dp" />
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="40dp"
+                android:text="Save"
+                app:layout_constraintBottom_toTopOf="@+id/showall_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <TextView
-                    android:id="@+id/userId"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="xxx"
-                    android:textSize="10sp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:text="TextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timebtn" />
 
+            <Button
+                android:id="@+id/showall_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="45dp"
+                android:text="show All"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/btnLogout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_logout"
-                app:drawableLeftCompat="@drawable/ic_logout"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:text="Cerrar Sesión"
-                android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnEliminarCta"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.421" />
-
-            <Button
-                android:id="@+id/btnEliminarCta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_eliminarcta"
-                app:drawableLeftCompat="@drawable/ic_eliminar"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:text="Eliminar Cuenta"
-                android:textAllCaps="false"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnLogout"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.421" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.cardview.widget.CardView>
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <!-- Main content -->
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        app:srcCompat="@drawable/ic_my_icon"
-        android:contentDescription="@string/submit"
-        android:layout_margin="16dp" />
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

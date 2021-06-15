@@ -119,7 +119,7 @@ public class loginActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             //FirebaseUser user = mAuth.getCurrentUser();
                             //Iniciar DASHBOARD u otra actividad luego del SigIn Exitoso
-                            Intent dashboardActivity = new Intent(loginActivity.this, MainActivity.class);
+                            Intent dashboardActivity = new Intent(loginActivity.this, ShowActivity.class);
                             startActivity(dashboardActivity);
                             loginActivity.this.finish();
                         } else {
@@ -150,7 +150,7 @@ public class loginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         mProgressBar.dismiss();
                         //redireccionar - intent a login
-                        Intent intent = new Intent(loginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(loginActivity.this, ShowActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }else {
@@ -173,7 +173,7 @@ public class loginActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){ //si no es null el usuario ya esta logueado
             //mover al usuario al dashboard
-            Intent dashboardActivity = new Intent(loginActivity.this, MainActivity.class);
+            Intent dashboardActivity = new Intent(loginActivity.this, ShowActivity.class);
             startActivity(dashboardActivity);
         }
         super.onStart();

@@ -1,5 +1,7 @@
 package com.example.registration;
 
+import java.util.Comparator;
+
 class Model {
     String id, title, desc, date, time;
 
@@ -49,5 +51,13 @@ class Model {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    static class SortByDate implements Comparator<Model> {
+        @Override
+        public int compare(Model a, Model b) {
+            return a.date.compareTo(b.date);
+        }
+
     }
 }

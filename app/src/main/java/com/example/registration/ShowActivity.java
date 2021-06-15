@@ -28,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ShowActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -122,8 +123,11 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
                                     snapshot.getString("desc"),
                                     snapshot.getString("date"),
                                     snapshot.getString("time"));
+
                             list.add(model);
+
                         }
+                        Collections.sort(list,new Model.SortByDate());
                         adapter.notifyDataSetChanged();
                     }
                 }).addOnFailureListener(new OnFailureListener() {

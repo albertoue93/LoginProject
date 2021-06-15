@@ -1,6 +1,7 @@
 package com.example.registration;
 
 import android.content.Intent;
+import android.nfc.FormatException;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,11 +31,14 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private ShowActivity activity;
     private List<Model> mList;
     private List<Model> mListOriginal;
+    Model meta;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public MyAdapter(ShowActivity activity, List<Model> mList) {
         this.activity = activity;
         this.mList = mList;
+
+
         mListOriginal = new ArrayList<>();
         mListOriginal.addAll(mList);
     }

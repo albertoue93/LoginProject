@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
             uDate = bundle.getString("uDate");
             uTime = bundle.getString("uTime");
             mDateText.setText(uDate);
-            mTimeText.setText(uDesc);
+            mTimeText.setText(uTime);
 
         }else{
             mSaveBtn.setText("Save");

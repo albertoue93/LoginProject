@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
+import android.widget.TabHost;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -39,6 +41,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
     FloatingActionButton btnFab;
     Button btnCerrarSesion;
     private SearchView txtBuscar;
+    TabHost tabs;
 
     private FirebaseAuth mAuth;
     private GoogleSignInClient mGoogleSignInClient;
@@ -55,6 +58,28 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         txtBuscar=findViewById(R.id.txtBuscar);
+        Resources res = getResources();
+
+       tabs=(TabHost)findViewById(android.R.id.tabhost);
+        tabs.setup();
+
+        TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
+        spec.setContent(R.id.tab1);
+        spec.setIndicator("Citas");
+        tabs.addTab(spec);
+
+        spec=tabs.newTabSpec("mitab2");
+        spec.setContent(R.id.tab2);
+        spec.setIndicator("Pendientes");
+        tabs.addTab(spec);
+
+        tabs.setCurrentTab(0);
+        tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                startActivity(new Intent(ShowActivity.this, ListActivity.class));
+            }
+        });
 
         db = FirebaseFirestore.getInstance();
         list = new ArrayList<>();

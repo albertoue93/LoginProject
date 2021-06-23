@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Registration</string>
+    <string name="app_name">BarberBook</string>
     <string name="submit">submit</string>
+    <string name="tab_text">tab</string>
 
 </resources>

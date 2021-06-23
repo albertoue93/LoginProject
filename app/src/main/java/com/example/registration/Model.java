@@ -1,9 +1,12 @@
 package com.example.registration;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 
 class Model {
+
     String id, title, desc, date, time;
+    private boolean expanded;
 
     public Model(String id, String title, String desc, String date, String time) {
         this.id = id;
@@ -11,6 +14,7 @@ class Model {
         this.desc = desc;
         this.date = date;
         this.time = time;
+        this.expanded = false;
     }
 
     public String getId() {
@@ -53,10 +57,19 @@ class Model {
         this.time = time;
     }
 
+
+    public boolean isExpanded() {
+        return expanded;
+    }
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
+    }
+
     static class SortByDate implements Comparator<Model> {
         @Override
         public int compare(Model a, Model b) {
-            return a.date.compareTo(b.date);
+            return b.date.compareTo(a.date);
         }
 
     }

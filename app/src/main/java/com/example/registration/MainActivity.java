@@ -36,7 +36,10 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -55,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView mDateText , mTimeText, mDesc;
     private String uDate, uTime;
     Spinner spinner;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 String desc = spinner.getSelectedItem().toString();
                 String date = mDateText.getText().toString();
                 String time = mTimeText.getText().toString();
-
 
                 Bundle bundle1 = getIntent().getExtras();
                 if(bundle1 != null){
@@ -203,9 +204,11 @@ public class MainActivity extends AppCompatActivity {
 
             db.collection("Documents").document(id).set(map)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
+
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
+
                                 Toast.makeText(MainActivity.this, "Data Saved !!", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -219,6 +222,7 @@ public class MainActivity extends AppCompatActivity {
         }else
             Toast.makeText(this, "Empty Fields not Allowed", Toast.LENGTH_SHORT).show();
     }
+
 
     private void openTimePicker() {
 

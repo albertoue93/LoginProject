@@ -51,13 +51,19 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             activity.showData();
         } else {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-                List<Model> collecion = mList.stream().filter(i -> i.getTitle().toLowerCase().contains(txtBuscar                        .toLowerCase()))
+                List<Model> collecion = mList.stream().filter(i -> i.getTitle().toLowerCase().contains(txtBuscar.toLowerCase())
+                        ||i.getTime().toLowerCase().contains(txtBuscar.toLowerCase())
+                        ||i.getDate().toLowerCase().contains(txtBuscar.toLowerCase())
+                        ||i.getDesc().toLowerCase().contains(txtBuscar.toLowerCase()))
                         .collect(Collectors.toList());
                 mList.clear();
                 mList.addAll(collecion);
             } else {
                 for (Model m: mListOriginal) {
-                    if(m.getTitle().toLowerCase().contains(txtBuscar.toLowerCase())){
+                    if(m.getTitle().toLowerCase().contains(txtBuscar.toLowerCase())
+                            ||m.getDesc().toLowerCase().contains(txtBuscar.toLowerCase())
+                            ||m.getDate().toLowerCase().contains(txtBuscar.toLowerCase())
+                            ||m.getDesc().toLowerCase().contains(txtBuscar.toLowerCase())){
                         mList.add(m);
                     }
                 }

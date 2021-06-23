@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="0dp"
                 android:layout_marginEnd="250dp"
                 android:text="Estado"
                 android:ems="40"
@@ -60,7 +60,7 @@
                 android:layout_width="200dp"
                 android:layout_height="24dp"
 
-                android:layout_marginBottom="100dp"
+                android:layout_marginBottom="105dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/datebtn"

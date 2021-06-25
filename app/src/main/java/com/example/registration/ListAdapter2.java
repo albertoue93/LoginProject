@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.MyViewHolder> {
+
     private ListActivity2 activity;
     private List<Model> mList;
     private List<Model> mListOriginal;
@@ -27,15 +28,15 @@ class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.MyViewHolder> {
     }
 
     @NonNull
-    @NotNull
+    @org.jetbrains.annotations.NotNull
     @Override
-    public ListAdapter2.MyViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public ListAdapter2.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(activity).inflate(R.layout.list_group2, parent , false);
         return new ListAdapter2.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ListAdapter2.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ListAdapter2.MyViewHolder holder, int position) {
         holder.title.setText(mList.get(position).getTitle());
         holder.desc.setText(mList.get(position).getDesc());
         holder.date.setText(mList.get(position).getDate());
@@ -46,7 +47,7 @@ class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
@@ -62,7 +63,7 @@ class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.MyViewHolder> {
             expandableLayout = itemView.findViewById(R.id.expandableLayout);
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     Model model=mList.get(getAdapterPosition());
                     model.setExpanded(!model.isExpanded());
                     notifyItemChanged(getAdapterPosition());

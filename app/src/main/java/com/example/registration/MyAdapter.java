@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
@@ -35,12 +33,10 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<Model> mListOriginal;
     Model meta;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private FirebaseAuth auth = FirebaseAuth.getInstance();
 
     public MyAdapter(ShowActivity activity, List<Model> mList) {
         this.activity = activity;
         this.mList = mList;
-
 
         mListOriginal = new ArrayList<>();
         mListOriginal.addAll(mList);
@@ -85,7 +81,6 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         Intent intent = new Intent(activity, MainActivity.class);
         intent.putExtras(bundle);
         activity.startActivity(intent);
-
     }
 
     public void deleteData(int position){

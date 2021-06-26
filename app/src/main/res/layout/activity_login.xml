@@ -12,7 +12,7 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Barber Book"
         android:textColor="@color/colorWhite"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -22,6 +22,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.13" />
 
+
+    <TextView
+        android:id="@+id/logo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@color/colorWhite"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.184" />
 
     <EditText
         android:id="@+id/inputPassword"
@@ -124,11 +139,12 @@
 
     <Button
         android:id="@+id/btnGoogle"
-        android:layout_width="146dp"
-        android:layout_height="68dp"
+        android:layout_width="172dp"
+        android:layout_height="50dp"
         android:layout_marginStart="132dp"
         android:background="@drawable/btn_bg"
-        android:drawablePadding="30dp"
+        android:drawablePadding="20dp"
+        android:paddingStart="25dp"
         android:text="Google"
         android:textAlignment="textStart"
         android:textAllCaps="false"

@@ -20,7 +20,7 @@
             android:padding="8dp"
             android:id="@+id/title_text"
             tools:ignore="MissingConstraints"
-            android:background="@color/colorPrimaryDark"/>
+            android:background="#2286EA"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/expandableLayout"
             android:layout_width="0dp"
@@ -30,7 +30,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_text"
-            android:background="@color/colorPrimaryDark">
+            android:background="#2286EA">
 
 
             <TextView

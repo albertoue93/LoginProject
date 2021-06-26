@@ -22,7 +22,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:background="@drawable/gradiente_background">
 
 
             <EditText
@@ -41,17 +41,16 @@
 
             <TextView
                 android:id="@+id/edit_desc"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="0dp"
+                android:layout_width="141dp"
+                android:layout_height="27dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="250dp"
-                android:text="Estado"
                 android:ems="40"
                 android:hint="opciones"
                 android:inputType="textPersonName"
+                android:text="Estado"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_title" />
 
@@ -60,51 +59,50 @@
                 android:layout_width="200dp"
                 android:layout_height="24dp"
 
-                android:layout_marginBottom="105dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 app:layout_constraintBottom_toTopOf="@+id/datebtn"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <Button
                 android:id="@+id/datebtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="206dp"
+                android:layout_height="43dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="200dp"
-                android:text="Date Picker"
+                android:layout_marginTop="124dp"
+                android:text="SELECCIONAR FECHA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/datetext"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_width="150dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="28dp"
                 android:ems="10"
                 android:hint="Date"
                 android:paddingTop="10dp"
                 android:text="Fecha"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.062"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_desc" />
 
             <Button
                 android:id="@+id/timebtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="206dp"
+                android:layout_height="41dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:text="Time Picker"
+                android:layout_marginTop="268dp"
+                android:text="SELECCIONAR HORA"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <Button
                 android:id="@+id/save_btn"
@@ -112,7 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="40dp"
-                android:text="Save"
+                android:text="GUARDAR"
                 app:layout_constraintBottom_toTopOf="@+id/showall_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -120,12 +118,12 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
+                android:layout_width="153dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="268dp"
                 android:text="Hora"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.078"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -135,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="45dp"
-                android:text="show All"
+                android:text="VER TODOS"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

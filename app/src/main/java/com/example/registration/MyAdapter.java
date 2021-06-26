@@ -91,7 +91,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
                             notifyRemoved(position);
-                            Toast.makeText(activity, "Data delete", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "Datos Eliminados!", Toast.LENGTH_SHORT).show();
                         } else{
                             Toast.makeText(activity, "Error"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }

@@ -81,18 +81,18 @@ public class MainActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
-            mSaveBtn.setText("Update");
+            mSaveBtn.setText("ACTUALIZAR");
             uTitle = bundle.getString("uTitle");
             uId = bundle.getString("uDesc");
             uDesc = bundle.getString("uDesc");
             uDate = bundle.getString("uDate");
             uTime = bundle.getString("uTime");
         } else {
-            mSaveBtn.setText("Save");
+            mSaveBtn.setText("GUARDAR");
         }
 
         if (bundle != null){
-            mSaveBtn.setText("Update");
+            mSaveBtn.setText("ACTUALIZAR");
             uTitle = bundle.getString("uTitle");
             uId = bundle.getString("uId");
             uDesc = bundle.getString("uDesc");
@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             mTimeText.setText(uTime);
 
         }else{
-            mSaveBtn.setText("Save");
+            mSaveBtn.setText("GUARDAR");
         }
         mShowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Data update", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Datos Actualizados!", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
 
-                                Toast.makeText(MainActivity.this, "Data Saved !!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Datos Guardados!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
         }else
-            Toast.makeText(this, "Empty Fields not Allowed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Campos vacíos no permitidos!", Toast.LENGTH_SHORT).show();
     }
 
 

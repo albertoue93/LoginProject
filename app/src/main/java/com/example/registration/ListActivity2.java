@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.widget.TabHost;
 import android.widget.Toast;
 
-import com.example.registration.ListAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -22,23 +21,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity2 extends AppCompatActivity {
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private ListAdapter adapter;
+    private ListAdapter2 adapter;
     private List<Model> list;
     TabHost tabs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
-        recyclerView = findViewById(R.id.recyclerview1);
+        setContentView(R.layout.activity_list2);
+
+        recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         db = FirebaseFirestore.getInstance();
         list = new ArrayList<>();
-        adapter = new ListAdapter(this, list);
+        adapter = new ListAdapter2(this, list);
         recyclerView.setAdapter(adapter);
         showData();
         tabs=(TabHost)findViewById(android.R.id.tabhost);
@@ -58,10 +58,11 @@ public class ListActivity extends AppCompatActivity {
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                startActivity(new Intent(ListActivity.this, ShowActivity.class));
+                startActivity(new Intent(ListActivity2.this,AdminActivity.class));
             }
         });
     }
+
     public void showData(){
 
         db.collection("Documents").whereEqualTo("desc","Pendiente").get()
@@ -87,7 +88,7 @@ public class ListActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(ListActivity.this, "Oops ... something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListActivity2.this, "Oops ... something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
     }

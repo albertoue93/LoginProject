@@ -32,10 +32,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ShowActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class AdminActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
     private RecyclerView recyclerView;
     private FirebaseFirestore db;
-    private MyAdapter adapter;
+    private MyAdapter2 adapter;
     private List<Model> list;
     FloatingActionButton btnFab;
     Button btnCerrarSesion;
@@ -49,7 +49,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show);
+        setContentView(R.layout.activity_admin);
         btnFab=findViewById(R.id.fab);
         btnCerrarSesion=findViewById(R.id.btnLogout);
 
@@ -59,7 +59,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
         txtBuscar=findViewById(R.id.txtBuscar);
         Resources res = getResources();
 
-       tabs=(TabHost)findViewById(android.R.id.tabhost);
+        tabs=(TabHost)findViewById(android.R.id.tabhost);
         tabs.setup();
 
         TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
@@ -76,13 +76,13 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                startActivity(new Intent(ShowActivity.this, ListActivity.class));
+                startActivity(new Intent(AdminActivity.this, ListActivity2.class));
             }
         });
 
         db = FirebaseFirestore.getInstance();
         list = new ArrayList<>();
-        adapter = new MyAdapter(this, list);
+        adapter = new MyAdapter2(this, list);
         recyclerView.setAdapter(adapter);
         mAuth=FirebaseAuth.getInstance();
         FirebaseUser currentUser=mAuth.getCurrentUser();
@@ -97,7 +97,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //CIERRA SESION FIREBASE
@@ -111,7 +111,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
                             Intent loginActivity = new Intent(getApplicationContext(), loginActivity.class);
                             loginActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(loginActivity);
-                            ShowActivity.this.finish();
+                            AdminActivity.this.finish();
                         }else{
                             Toast.makeText(getApplicationContext(), "No se pudo cerrar sesión con google",
                                     Toast.LENGTH_LONG).show();
@@ -121,16 +121,11 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        ItemTouchHelper touchHelper = new ItemTouchHelper(new TouchHelper(adapter));
-        touchHelper.attachToRecyclerView(recyclerView);
+        ItemTouchHelper touchHelper2 = new ItemTouchHelper(new TouchHelper2(adapter));
+        touchHelper2.attachToRecyclerView(recyclerView);
         showData();
         txtBuscar.setOnQueryTextListener(this);
-        btnFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ShowActivity.this, MainActivity.class));
-            }
-        });
+
     }
     public void showData(){
 
@@ -157,7 +152,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(ShowActivity.this, "Oops ... something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminActivity.this, "Oops ... something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -183,7 +178,7 @@ public class ShowActivity extends AppCompatActivity implements SearchView.OnQuer
                 Intent loginActivity = new Intent(getApplicationContext(), loginActivity.class);
                 loginActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(loginActivity);
-                ShowActivity.this.finish();
+                AdminActivity.this.finish();
             }
         });
     }

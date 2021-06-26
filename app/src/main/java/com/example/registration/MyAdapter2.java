@@ -1,7 +1,6 @@
 package com.example.registration;
 
 import android.content.Intent;
-import android.nfc.FormatException;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,27 +15,24 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
-import java.text.Format;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
-    private ShowActivity activity;
+    private AdminActivity activity;
     private List<Model> mList;
     private List<Model> mListOriginal;
     Model meta;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    public MyAdapter(ShowActivity activity, List<Model> mList) {
+    public MyAdapter2(AdminActivity activity, List<Model> mList) {
         this.activity = activity;
         this.mList = mList;
+
 
         mListOriginal = new ArrayList<>();
         mListOriginal.addAll(mList);
@@ -78,7 +74,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         bundle.putString("uDesc", item.getDesc());
         bundle.putString("uDate", item.getDate());
         bundle.putString("uTime", item.getTime());
-        Intent intent = new Intent(activity, MainActivity.class);
+        Intent intent = new Intent(activity, MainActivity2.class);
         intent.putExtras(bundle);
         activity.startActivity(intent);
     }
@@ -103,16 +99,17 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         notifyItemRemoved(position);
         activity.showData();
     }
+
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
+    public MyAdapter2.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(activity).inflate(R.layout.item , parent , false);
-        return new MyViewHolder(v);
+        return new MyAdapter2.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull MyAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull MyViewHolder holder, int position) {
         holder.title.setText(mList.get(position).getTitle());
         holder.desc.setText(mList.get(position).getDesc());
         holder.date.setText(mList.get(position).getDate());

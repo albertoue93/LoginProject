@@ -150,7 +150,7 @@ public class loginActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         mProgressBar.dismiss();
                         //redireccionar - intent a login
-                        Intent intent = new Intent(loginActivity.this, ShowActivity.class);
+                        Intent intent = new Intent(loginActivity.this, AdminActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                     }else {

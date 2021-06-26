@@ -9,33 +9,34 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
+class ListAdapter2 extends RecyclerView.Adapter<ListAdapter2.MyViewHolder> {
 
-    private ListActivity activity;
+    private ListActivity2 activity;
     private List<Model> mList;
     private List<Model> mListOriginal;
 
-    public ListAdapter(ListActivity activity, List<Model> mList) {
+    public ListAdapter2(ListActivity2 activity, List<Model> mList) {
         this.activity = activity;
         this.mList = mList;
         mListOriginal = new ArrayList<>();
         mListOriginal.addAll(mList);
     }
 
-
     @NonNull
     @org.jetbrains.annotations.NotNull
     @Override
-    public ListAdapter.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(activity).inflate(R.layout.list_group, parent , false);
-        return new ListAdapter.MyViewHolder(v);
+    public ListAdapter2.MyViewHolder onCreateViewHolder(@NonNull @org.jetbrains.annotations.NotNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(activity).inflate(R.layout.list_group2, parent , false);
+        return new ListAdapter2.MyViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ListAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @org.jetbrains.annotations.NotNull ListAdapter2.MyViewHolder holder, int position) {
         holder.title.setText(mList.get(position).getTitle());
         holder.desc.setText(mList.get(position).getDesc());
         holder.date.setText(mList.get(position).getDate());
@@ -62,10 +63,10 @@ class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
             expandableLayout = itemView.findViewById(R.id.expandableLayout);
             title.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                        Model model=mList.get(getAdapterPosition());
-                        model.setExpanded(!model.isExpanded());
-                        notifyItemChanged(getAdapterPosition());
+                public void onClick(View view) {
+                    Model model=mList.get(getAdapterPosition());
+                    model.setExpanded(!model.isExpanded());
+                    notifyItemChanged(getAdapterPosition());
                 }
             });
         }

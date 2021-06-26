@@ -3,51 +3,31 @@ package com.example.registration;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.UUID;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     private EditText mTitle;
     private Button mSaveBtn, mShowBtn;
@@ -62,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-
+        setContentView(R.layout.activity_main2);
 
         mTitle = findViewById(R.id.edit_title);
         mSaveBtn = findViewById(R.id.save_btn);
@@ -111,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mShowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ShowActivity.class));
+                startActivity(new Intent(MainActivity2.this, AdminActivity.class));
             }
         });
 
@@ -149,11 +127,11 @@ public class MainActivity extends AppCompatActivity {
                 openTimePicker();
             }
         });
-         spinner=  findViewById(R.id.planets_spinner);
+        spinner=  findViewById(R.id.planets_spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 parent.getItemAtPosition(position);
+                parent.getItemAtPosition(position);
             }
 
             @Override
@@ -180,15 +158,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Datos Actualizados!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity2.this, "Datos Actualizados", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity2.this, "Error" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity2.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -209,18 +187,18 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()){
 
-                                Toast.makeText(MainActivity.this, "Datos Guardados!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity2.this, "Data Saved !!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(MainActivity.this, "Failed !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity2.this, "Failed !!", Toast.LENGTH_SHORT).show();
                 }
             });
 
         }else
-            Toast.makeText(this, "Campos vacíos no permitidos!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Campos vacíos no permitidos", Toast.LENGTH_SHORT).show();
     }
 
 

@@ -46,15 +46,15 @@ public class ListActivity2 extends AppCompatActivity {
 
         TabHost.TabSpec spec=tabs.newTabSpec("mitab1");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Pendientes");
+        spec.setIndicator("Citas");
         tabs.addTab(spec);
 
         spec=tabs.newTabSpec("mitab2");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("Citas");
+        spec.setIndicator("Pendientes");
         tabs.addTab(spec);
 
-        tabs.setCurrentTab(0);
+        tabs.setCurrentTab(1);
         tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {

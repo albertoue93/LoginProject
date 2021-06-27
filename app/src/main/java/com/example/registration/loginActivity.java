@@ -173,7 +173,7 @@ public class loginActivity extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         if(user!=null){ //si no es null el usuario ya esta logueado
             //mover al usuario al dashboard
-            Intent dashboardActivity = new Intent(loginActivity.this, ShowActivity.class);
+            Intent dashboardActivity = new Intent(loginActivity.this, AdminActivity.class);
             startActivity(dashboardActivity);
         }
         super.onStart();

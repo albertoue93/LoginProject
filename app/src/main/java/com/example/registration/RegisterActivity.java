@@ -102,7 +102,7 @@ public class RegisterActivity extends AppCompatActivity {
                         df.set(userInfo).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                Log.d("Registro","REgistro correcto");
+                                Log.d("Registro","Registro correcto");
                                 mProgressBar.dismiss();
                                 //redireccionar - intent a login
                                 Intent intent = new Intent(RegisterActivity.this, loginActivity.class);
@@ -113,13 +113,13 @@ public class RegisterActivity extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Log.d("Registro","REgistro INcorrecto");
+                                Log.d("Registro","Registro Incorrecto");
                             }
                         });
 
 
                     }else{
-                        Toast.makeText(getApplicationContext(),"Nose pudo registrar", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"No se pudo registrar", Toast.LENGTH_LONG).show();
                     }
                 }
             });
